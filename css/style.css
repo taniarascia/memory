@@ -1,0 +1,58 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: #e3e3e3;
+}
+
+.grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: block;
+  position: relative;
+  flex: 1 1 calc(100% / 6);
+  border: 2px solid #ddd;
+  background: white;
+  width: 150px;
+  max-width: 150px;
+  height: 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* .card::after {
+  position: absolute;
+  content: '';
+  background-color: white;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+} */
+
+/* .selected.card::after {
+  position: absolute;
+  content: '';
+  background-color: transparent;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+} */
+
+.selected {
+  border: 2px dotted red;
+}
+
+.match {
+  border: 2px solid blue;
+}
