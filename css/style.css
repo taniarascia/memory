@@ -5,54 +5,55 @@
 }
 
 body {
-  background: #e3e3e3;
+  margin: 20px 0;
+  background: #6589F9;
 }
 
 .grid {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .card {
-  display: block;
   position: relative;
-  flex: 1 1 calc(100% / 6);
-  border: 2px solid #ddd;
-  background: white;
-  width: 150px;
-  max-width: 150px;
+  transition: all .4s linear;
+  transform-style: preserve-3d;
+  margin: 5px;
+}
+
+.card,
+.back,
+.front {
   height: 150px;
+  width: 150px;
+}
+
+.back,
+.front {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.front {
+  z-index: 2;
+  background: #FAB942 url('../img/question.gif') no-repeat center center / contain;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background-color: #6589F9;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-/* .card::after {
-  position: absolute;
-  content: '';
-  background-color: white;
-  top: 0;
-  left: 0;
-  width: 150px;
-  height: 150px;
-} */
-
-/* .selected.card::after {
-  position: absolute;
-  content: '';
-  background-color: transparent;
-  top: 0;
-  left: 0;
-  width: 150px;
-  height: 150px;
-} */
-
 .selected {
-  border: 2px dotted red;
+  transform: rotateY(180deg);
 }
 
-.match {
-  border: 2px solid blue;
+.match .front {
+  background: #6589F9 !important;
 }
