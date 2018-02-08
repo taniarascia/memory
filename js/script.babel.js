@@ -91,7 +91,7 @@ var resetGuesses = function resetGuesses() {
 
 grid.addEventListener('click', function (event) {
   var clicked = event.target;
-  if (clicked.nodeName === 'SECTION' || clicked === previousTarget || clicked.parentNode.classList.contains('match')) {
+  if (clicked.nodeName === 'SECTION' || clicked === previousTarget || clicked.parentNode.classList.contains('match') || clicked.parentNode.classList.contains('selected')) {
     return;
   }
   if (count < 2) {
