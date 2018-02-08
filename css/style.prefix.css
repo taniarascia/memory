@@ -48,7 +48,6 @@ body {
 }
 
 .front {
-  z-index: 2;
   background: #FAB942 url('../img/question.gif') no-repeat center center / contain;
 }
 
