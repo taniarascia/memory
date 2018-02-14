@@ -38,8 +38,7 @@ var cardsArray = [{
   'img': 'img/goomba.png'
 }];
 
-var gameGrid = cardsArray.concat(cardsArray);
-gameGrid.sort(function () {
+var gameGrid = cardsArray.concat(cardsArray).sort(function () {
   return 0.5 - Math.random();
 });
 
@@ -55,16 +54,20 @@ grid.setAttribute('class', 'grid');
 game.appendChild(grid);
 
 gameGrid.forEach(function (item) {
+  var name = item.name,
+      img = item.img;
+
+
   var card = document.createElement('div');
   card.classList.add('card');
-  card.dataset.name = item.name;
+  card.dataset.name = name;
 
   var front = document.createElement('div');
   front.classList.add('front');
 
   var back = document.createElement('div');
   back.classList.add('back');
-  back.style.backgroundImage = 'url(' + item.img + ')';
+  back.style.backgroundImage = 'url(' + img + ')';
 
   grid.appendChild(card);
   card.appendChild(front);
@@ -90,10 +93,13 @@ var resetGuesses = function resetGuesses() {
 };
 
 grid.addEventListener('click', function (event) {
+
   var clicked = event.target;
-  if (clicked.nodeName === 'SECTION' || clicked === previousTarget || clicked.parentNode.classList.contains('match') || clicked.parentNode.classList.contains('selected')) {
+
+  if (clicked.nodeName === 'SECTION' || clicked === previousTarget || clicked.parentNode.classList.contains('match')) {
     return;
   }
+
   if (count < 2) {
     count++;
     if (count === 1) {
@@ -105,13 +111,12 @@ grid.addEventListener('click', function (event) {
       console.log(secondGuess);
       clicked.parentNode.classList.add('selected');
     }
-    if (firstGuess !== '' && secondGuess !== '') {
+
+    if (firstGuess && secondGuess) {
       if (firstGuess === secondGuess) {
         setTimeout(match, delay);
-        setTimeout(resetGuesses, delay);
-      } else {
-        setTimeout(resetGuesses, delay);
       }
+      setTimeout(resetGuesses, delay);
     }
     previousTarget = clicked;
   }

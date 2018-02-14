@@ -48,8 +48,9 @@ const cardsArray = [{
   },
 ];
 
-let gameGrid = cardsArray.concat(cardsArray);
-gameGrid.sort(() => 0.5 - Math.random());
+const gameGrid = cardsArray
+  .concat(cardsArray)
+  .sort(() => 0.5 - Math.random());
 
 let firstGuess = '';
 let secondGuess = '';
@@ -63,16 +64,18 @@ grid.setAttribute('class', 'grid');
 game.appendChild(grid);
 
 gameGrid.forEach(item => {
+  const { name, img } = item;
+
   const card = document.createElement('div');
   card.classList.add('card');
-  card.dataset.name = item.name;
+  card.dataset.name = name;
 
   const front = document.createElement('div');
   front.classList.add('front');
 
   const back = document.createElement('div');
   back.classList.add('back');
-  back.style.backgroundImage = `url(${item.img})`;
+  back.style.backgroundImage = `url(${img})`;
 
   grid.appendChild(card);
   card.appendChild(front);
@@ -80,11 +83,11 @@ gameGrid.forEach(item => {
 });
 
 const match = () => {
-  var selected = document.querySelectorAll('.selected');
+  const selected = document.querySelectorAll('.selected');
   selected.forEach(card => {
     card.classList.add('match');
   });
-}
+};
 
 const resetGuesses = () => {
   firstGuess = '';
@@ -97,15 +100,18 @@ const resetGuesses = () => {
   });
 };
 
-grid.addEventListener('click', function (event) {
-  let clicked = event.target;
-if (
-  clicked.nodeName === 'SECTION' ||
-  clicked === previousTarget ||
-  clicked.parentNode.classList.contains('match')
-) {
-  return;
-}
+grid.addEventListener('click', event => {
+  
+  const clicked = event.target;
+
+  if (
+    clicked.nodeName === 'SECTION' ||
+    clicked === previousTarget ||
+    clicked.parentNode.classList.contains('match')
+  ) {
+    return;
+  }
+
   if (count < 2) {
     count++;
     if (count === 1) {
@@ -117,14 +123,14 @@ if (
       console.log(secondGuess);
       clicked.parentNode.classList.add('selected');
     }
-    if (firstGuess !== '' && secondGuess !== '') {
+    
+    if (firstGuess && secondGuess) {
       if (firstGuess === secondGuess) {
         setTimeout(match, delay);
-        setTimeout(resetGuesses, delay);
-      } else {
-        setTimeout(resetGuesses, delay);
       }
+      setTimeout(resetGuesses, delay);
     }
     previousTarget = clicked;
   }
+
 });
