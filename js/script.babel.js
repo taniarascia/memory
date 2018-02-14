@@ -96,7 +96,7 @@ grid.addEventListener('click', function (event) {
 
   var clicked = event.target;
 
-  if (clicked.nodeName === 'SECTION' || clicked === previousTarget || clicked.parentNode.classList.contains('match')) {
+  if (clicked.nodeName === 'SECTION' || clicked === previousTarget || clicked.parentNode.classList.contains('selected')) {
     return;
   }
 
