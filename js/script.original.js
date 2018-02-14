@@ -107,7 +107,7 @@ grid.addEventListener('click', event => {
   if (
     clicked.nodeName === 'SECTION' ||
     clicked === previousTarget ||
-    clicked.parentNode.classList.contains('match')
+    clicked.parentNode.classList.contains('selected')
   ) {
     return;
   }
