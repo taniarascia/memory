@@ -93,6 +93,7 @@ const resetGuesses = () => {
   firstGuess = '';
   secondGuess = '';
   count = 0;
+  previousTarget = null;
 
   var selected = document.querySelectorAll('.selected');
   selected.forEach(card => {
