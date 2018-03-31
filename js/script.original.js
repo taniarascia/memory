@@ -102,13 +102,14 @@ const resetGuesses = () => {
 };
 
 grid.addEventListener('click', event => {
-  
+
   const clicked = event.target;
 
   if (
     clicked.nodeName === 'SECTION' ||
     clicked === previousTarget ||
-    clicked.parentNode.classList.contains('selected')
+    clicked.parentNode.classList.contains('selected') ||
+    clicked.parentNode.classList.contains('match')
   ) {
     return;
   }
@@ -124,7 +125,7 @@ grid.addEventListener('click', event => {
       console.log(secondGuess);
       clicked.parentNode.classList.add('selected');
     }
-    
+
     if (firstGuess && secondGuess) {
       if (firstGuess === secondGuess) {
         setTimeout(match, delay);
