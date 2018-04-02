@@ -85,6 +85,7 @@ var resetGuesses = function resetGuesses() {
   firstGuess = '';
   secondGuess = '';
   count = 0;
+  previousTarget = null;
 
   var selected = document.querySelectorAll('.selected');
   selected.forEach(function (card) {
@@ -96,7 +97,7 @@ grid.addEventListener('click', function (event) {
 
   var clicked = event.target;
 
-  if (clicked.nodeName === 'SECTION' || clicked === previousTarget || clicked.parentNode.classList.contains('selected')) {
+  if (clicked.nodeName === 'SECTION' || clicked === previousTarget || clicked.parentNode.classList.contains('selected') || clicked.parentNode.classList.contains('match')) {
     return;
   }
 
