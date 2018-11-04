@@ -3,7 +3,7 @@
 Fun and simple memory game, like the one from Super Mario 3, made with plain JavaScript.
 
 ### [View Demo](http://taniarascia.github.io/memory)
-### [View Tutorial](how-to-create-a-memory-game-super-mario-with-plain-javascript)
+### [View Tutorial](https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/)
 
 ## Instructions
 
