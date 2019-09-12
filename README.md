@@ -2,8 +2,7 @@
 
 Fun and simple memory game, like the one from Super Mario 3, made with plain JavaScript.
 
-### [View Demo](http://taniarascia.github.io/memory)
-### [View Tutorial](https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/)
+### [Read the tutorial](https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/) | [View the demo](http://taniarascia.github.io/memory)
 
 ## Instructions
 
@@ -19,3 +18,11 @@ Just want to view the source of all the steps from start to finish? [View steps]
 - Add delay to selections.
 - Show back of card initially and flip on select
 - Finished game!
+
+## Author
+
+- [Tania Rascia](https://www.taniarascia.com)
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
