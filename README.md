@@ -1,4 +1,6 @@
-# JavaScript Memory Game
+# ⭐ JavaScript Memory Game
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 Fun and simple memory game, like the one from Super Mario 3, made with plain JavaScript.
 
