@@ -1,46 +1,10 @@
 'use strict';
 
-var cardsArray = [{
-  'name': 'shell',
-  'img': 'img/blueshell.png'
-}, {
-  'name': 'star',
-  'img': 'img/star.png'
-}, {
-  'name': 'bobomb',
-  'img': 'img/bobomb.png'
-}, {
-  'name': 'mario',
-  'img': 'img/mario.png'
-}, {
-  'name': 'luigi',
-  'img': 'img/luigi.png'
-}, {
-  'name': 'peach',
-  'img': 'img/peach.png'
-}, {
-  'name': '1up',
-  'img': 'img/1up.png'
-}, {
-  'name': 'mushroom',
-  'img': 'img/mushroom.png'
-}, {
-  'name': 'thwomp',
-  'img': 'img/thwomp.png'
-}, {
-  'name': 'bulletbill',
-  'img': 'img/bulletbill.png'
-}, {
-  'name': 'coin',
-  'img': 'img/coin.png'
-}, {
-  'name': 'goomba',
-  'img': 'img/goomba.png'
-}];
+import CARDS from './constants.js';
+const cardsArray = CARDS;
 
-var gameGrid = cardsArray.concat(cardsArray).sort(function () {
-  return 0.5 - Math.random();
-});
+var gameGrid = cardsArray.concat(cardsArray)
+                         .sort(() => 0.5 - Math.random());
 
 var firstGuess = '';
 var secondGuess = '';
@@ -50,22 +14,20 @@ var delay = 1200;
 
 var game = document.getElementById('game');
 var grid = document.createElement('section');
+
 grid.setAttribute('class', 'grid');
 game.appendChild(grid);
 
-gameGrid.forEach(function (item) {
+gameGrid.forEach((item) => {
   var name = item.name,
-      img = item.img;
-
-
-  var card = document.createElement('div');
+      img = item.img,
+      card = document.createElement('div'),
+      front = document.createElement('div'),
+      back = document.createElement('div');
+    
   card.classList.add('card');
   card.dataset.name = name;
-
-  var front = document.createElement('div');
   front.classList.add('front');
-
-  var back = document.createElement('div');
   back.classList.add('back');
   back.style.backgroundImage = 'url(' + img + ')';
 
@@ -75,8 +37,8 @@ gameGrid.forEach(function (item) {
 });
 
 var match = function match() {
-  var selected = document.querySelectorAll('.selected');
-  selected.forEach(function (card) {
+  let selected = document.querySelectorAll('.selected');
+  selected.forEach((card) => {
     card.classList.add('match');
   });
 };
@@ -88,12 +50,12 @@ var resetGuesses = function resetGuesses() {
   previousTarget = null;
 
   var selected = document.querySelectorAll('.selected');
-  selected.forEach(function (card) {
+  selected.forEach((card) => {
     card.classList.remove('selected');
   });
 };
 
-grid.addEventListener('click', function (event) {
+grid.addEventListener('click', (event) => {
 
   var clicked = event.target;
 
@@ -105,11 +67,9 @@ grid.addEventListener('click', function (event) {
     count++;
     if (count === 1) {
       firstGuess = clicked.parentNode.dataset.name;
-      console.log(firstGuess);
       clicked.parentNode.classList.add('selected');
     } else {
       secondGuess = clicked.parentNode.dataset.name;
-      console.log(secondGuess);
       clicked.parentNode.classList.add('selected');
     }
 
