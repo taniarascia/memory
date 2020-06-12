@@ -7,7 +7,7 @@
 
 body {
   margin: 20px 0;
-  background: #6589F9;
+  background: lightseagreen;
 }
 
 .grid {
@@ -54,7 +54,7 @@ body {
 .back {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
-  background-color: #6589F9;
+  background-color: lightseagreen;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
